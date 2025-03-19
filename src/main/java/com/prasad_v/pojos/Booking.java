@@ -1,4 +1,4 @@
-package com.prasad_v.ex_10_PayloadMagement.gson;
+package com.prasad_v.pojos;
 
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;

@@ -1,4 +1,4 @@
-package com.prasad_v.endpoints.endpoints;
+package com.prasad_v;
 
 public class APIConstants {
 }
