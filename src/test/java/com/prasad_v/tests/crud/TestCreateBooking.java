@@ -1,5 +1,8 @@
 package com.prasad_v.tests.crud;
 
+import com.prasad_v.APIConstants;
+import com.prasad_v.base.BaseTest;
+import com.prasad_v.pojos.BookingResponse;
 import io.qameta.allure.Description;
 import io.qameta.allure.Owner;
 import io.qameta.allure.TmsLink;
@@ -14,7 +17,8 @@ import org.testng.annotations.Test;
 
 import static io.restassured.RestAssured.requestSpecification;
 
-public class TestCreateBooking {
+public class TestCreateBooking extends BaseTest {
+
     // Create A Booking, Create a Token
     // Verify that Get booking -
     // Update the Booking
@@ -38,4 +42,5 @@ public class TestCreateBooking {
 
 
     }
+
 }

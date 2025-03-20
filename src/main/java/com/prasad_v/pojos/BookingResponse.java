@@ -3,7 +3,8 @@ package com.prasad_v.pojos;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
-public class BookingResponce {
+public class BookingResponse {
+
     @SerializedName("bookingid")
     @Expose
     private Integer bookingid;
@@ -26,4 +27,5 @@ public class BookingResponce {
     public void setBooking(Booking booking) {
         this.booking = booking;
     }
+
 }
