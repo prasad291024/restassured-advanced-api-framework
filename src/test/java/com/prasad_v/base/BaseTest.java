@@ -7,7 +7,7 @@ package com.prasad_v.base;
 //import com.prasad_v.asserts.AssertActions;
 //import com.prasad_v.endpoints.*;
 //import com.prasad_v.modules.PayloadManager;
-import com.prasad_v.APIConstants;
+import com.prasad_v.endpoints.APIConstants;
 import com.prasad_v.asserts.AssertActions;
 import com.prasad_v.modules.PayloadManager;
 import io.restassured.RestAssured;

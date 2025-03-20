@@ -1,14 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 <suite name="All Test Suite">
-    <test verbose="2" preserve-order="true" name="C:/Users/prasa/IdeaProjects/APIAutomationFrameworkATB10x">
+    <test verbose="2" preserve-order="true" name="C:/Users/prasa/IdeaProjects/APIAutomationFrameworkATB10x/src/test/java/com/prasad_v/tests/crud/TestCreateBooking.java">
         <classes>
-            <class name="com.prasad_v.tests.sample.TestIntegrationSample">
+            <class name="com.prasad_v.tests.crud.TestCreateBooking">
                 <methods>
-                    <include name="testCreateBooking"/>
-                    <include name="testVerifyBookingId"/>
-                    <include name="testUpdateBookingByID"/>
-                    <include name="testDeleteBookingById"/>
+                    <include name="testCreateBookingPOST"/>
                 </methods>
             </class>
         </classes>
