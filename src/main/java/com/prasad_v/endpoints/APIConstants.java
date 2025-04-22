@@ -4,7 +4,7 @@ public class APIConstants { // Class declaration for storing API-related constan
 
     // Base URL of the RESTful web service
     public static String BASE_URL = "https://restful-booker.herokuapp.com";
-    // public static String BASE_URL = // Fetch this from Excel file
+    // public static String BASE_URL = // In future, we can fetch this from Excel file if needed
 
 
     // In the future, instead of hardcoding, we may fetch the BASE_URL from an external Excel file.

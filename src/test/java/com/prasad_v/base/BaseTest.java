@@ -71,3 +71,24 @@ public class BaseTest {
         return token;
     }
 }
+
+
+
+
+
+
+
+
+
+
+/*
+This is the base class for all API tests.
+It sets up common configurations such as base URL, headers, and authentication token retrieval.
+The @BeforeTest annotation ensures that this setup is performed before running any tests.
+The getToken() method fetches an authentication token for secured API requests.
+The payloadManager and assertActions objects are initialized in the setUp() method for reuse across tests.
+The requestSpecification object is created as a reusable RequestSpecBuilder instance for all tests.
+The setUp() method is executed before each test class to ensure a fresh state for each test.
+This class serves as a foundation for all API tests and can be extended by other test classes.
+Any common functionality or setup required for all API tests can be added to this class.
+ */

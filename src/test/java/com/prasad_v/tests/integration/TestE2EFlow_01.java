@@ -40,7 +40,7 @@ public class TestE2EFlow_01 extends BaseTest {
      * @param iTestContext - Used to store booking ID for other tests.
      */
     @Test(groups = "qa", priority = 1)
-    @Owner("Promode")
+    @Owner("Prasad")
     @Description("TC#INT1 - Step 1. Verify that the Booking can be Created")
     public void testCreateBooking(ITestContext iTestContext) {
 
@@ -74,7 +74,7 @@ public class TestE2EFlow_01 extends BaseTest {
      * @param iTestContext - Retrieves stored booking ID.
      */
     @Test(groups = "qa", priority = 2)
-    @Owner("Promode")
+    @Owner("Prasad")
     @Description("TC#INT1 - Step 2. Verify the Booking By ID")
     public void testVerifyBookingId(ITestContext iTestContext) {
 
@@ -110,7 +110,7 @@ public class TestE2EFlow_01 extends BaseTest {
      * @param iTestContext - Retrieves stored booking ID and sets authentication token.
      */
     @Test(groups = "qa", priority = 3)
-    @Owner("Promode")
+    @Owner("Prasad")
     @Description("TC#INT1 - Step 3. Verify Updated Booking by ID")
     public void testUpdateBookingByID(ITestContext iTestContext) {
 
@@ -151,7 +151,7 @@ public class TestE2EFlow_01 extends BaseTest {
      * @param iTestContext - Retrieves stored booking ID and token.
      */
     @Test(groups = "qa", priority = 4)
-    @Owner("Promode")
+    @Owner("Prasad")
     @Description("TC#INT1 - Step 4. Delete the Booking by ID")
     public void testDeleteBookingById(ITestContext iTestContext) {
 

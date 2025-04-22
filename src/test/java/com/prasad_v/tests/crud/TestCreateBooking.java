@@ -23,7 +23,7 @@ public class TestCreateBooking extends BaseTest {
      */
     @Test(groups = "reg", priority = 1) // Marks test as part of regression, with high priority.
     @TmsLink("https://bugz.atlassian.net/browse/TS-1") // Links test to a test management system.
-    @Owner("Promode") // Specifies the test owner.
+    @Owner("Prasad") // Specifies the test owner.
     @Description("TC#INT1 - Step 1. Verify that the Booking can be Created") // Brief test description.
     public void testCreateBookingPOST() {
 
