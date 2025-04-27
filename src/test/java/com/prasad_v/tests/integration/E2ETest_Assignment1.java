@@ -50,7 +50,7 @@ public class E2ETest_Assignment1 {
     @Test
     public void testCreateDeleteVerifyBooking() {
         int bookingId = createBooking();
-        String token = "YOUR_VALID_TOKEN";  // Replace with actual token
+        String token = "2c4a5606ad3dc3b";  // Replace with actual token
 
         deleteBooking(bookingId, token);
 

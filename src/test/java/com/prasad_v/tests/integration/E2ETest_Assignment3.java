@@ -39,7 +39,7 @@ public class E2ETest_Assignment3 {
     @Test
     public void testCreateUpdateDeleteBooking() {
         int bookingId = createBooking();
-        String token = "YOUR_VALID_TOKEN";
+        String token = "2c4a5606ad3dc3b";
 
         // Update booking
         String updateRequestBody = "{ \"firstname\": \"Michael\", \"lastname\": \"Scott\", \"totalprice\": 200, \"depositpaid\": false, \"bookingdates\": { \"checkin\": \"2025-04-01\", \"checkout\": \"2025-04-05\" }, \"additionalneeds\": \"Lunch\" }";

@@ -22,7 +22,7 @@ public class E2ETest_Assignment4 {
     @Test
     public void testDeleteThenTryToUpdateBooking() {
         int bookingId = 100;  // Provide an existing booking ID
-        String token = "YOUR_VALID_TOKEN";
+        String token = "2c4a5606ad3dc3b";
 
         // Delete the booking
         given()

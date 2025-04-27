@@ -1,0 +1,8 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="API Test Suite">
+    <test name="Booking API Tests">
+        <classes>
+            <class name="com.prasad_v.tests.integration.E2ETest_Assignment1"/>
+        </classes>
+    </test>
+</suite>
