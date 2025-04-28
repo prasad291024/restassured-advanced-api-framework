@@ -8,7 +8,7 @@ package com.prasad_v.tests.integration;
  * 4. Verifying that the booking has been successfully deleted.
  */
 
-import com.prasad_v.base.BaseTest;
+import com.prasad_v.tests.base.BaseTest;
 import com.prasad_v.endpoints.APIConstants;
 import com.prasad_v.pojos.Booking;
 import com.prasad_v.pojos.BookingResponse;

@@ -1,7 +1,7 @@
 package com.prasad_v.tests.crud;
 
 import com.prasad_v.endpoints.APIConstants;
-import com.prasad_v.base.BaseTest;
+import com.prasad_v.tests.base.BaseTest;
 import io.qameta.allure.Description;
 import io.qameta.allure.Owner;
 import io.qameta.allure.TmsLink;

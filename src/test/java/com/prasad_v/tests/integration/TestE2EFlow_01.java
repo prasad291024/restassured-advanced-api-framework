@@ -10,7 +10,7 @@ package com.prasad_v.tests.integration;
  */
 
 import com.prasad_v.endpoints.APIConstants;
-import com.prasad_v.base.BaseTest;
+import com.prasad_v.tests.base.BaseTest;
 import com.prasad_v.pojos.Booking;
 import com.prasad_v.pojos.BookingResponse;
 import io.qameta.allure.Description;

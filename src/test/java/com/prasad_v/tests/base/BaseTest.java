@@ -1,4 +1,4 @@
-package com.prasad_v.base;
+package com.prasad_v.tests.base;
 
 import com.prasad_v.endpoints.APIConstants;
 import com.prasad_v.asserts.AssertActions;

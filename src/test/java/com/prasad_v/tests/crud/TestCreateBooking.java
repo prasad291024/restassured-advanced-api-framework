@@ -1,14 +1,13 @@
 package com.prasad_v.tests.crud;
 
 import com.prasad_v.endpoints.APIConstants;
-import com.prasad_v.base.BaseTest;
+import com.prasad_v.tests.base.BaseTest;
 import com.prasad_v.pojos.BookingResponse;
 import io.qameta.allure.Description;
 import io.qameta.allure.Owner;
 import io.qameta.allure.TmsLink;
 import io.restassured.RestAssured;
 import org.testng.annotations.Test;
-import org.testng.Assert;
 
 /**
  * This class automates the creation of a booking using the REST API.
