@@ -1,0 +1,196 @@
+{
+  "testData": {
+    "products": [
+      {
+        "id": "prod_001",
+        "name": "Laptop Pro",
+        "category": "electronics",
+        "price": 1299.99,
+        "description": "High-performance laptop with 16GB RAM and 512GB SSD",
+        "stock": 50,
+        "rating": 4.8
+      },
+      {
+        "id": "prod_002",
+        "name": "Smartphone X",
+        "category": "electronics",
+        "price": 799.99,
+        "description": "Latest smartphone with 6.5-inch display and 128GB storage",
+        "stock": 100,
+        "rating": 4.5
+      },
+      {
+        "id": "prod_003",
+        "name": "Wireless Headphones",
+        "category": "accessories",
+        "price": 199.99,
+        "description": "Noise-cancelling wireless headphones with 20-hour battery life",
+        "stock": 75,
+        "rating": 4.7
+      },
+      {
+        "id": "prod_004",
+        "name": "Smart Watch",
+        "category": "wearables",
+        "price": 249.99,
+        "description": "Smart watch with health monitoring and GPS tracking",
+        "stock": 60,
+        "rating": 4.3
+      },
+      {
+        "id": "prod_005",
+        "name": "Tablet Ultra",
+        "category": "electronics",
+        "price": 499.99,
+        "description": "10-inch tablet with retina display and 64GB storage",
+        "stock": 40,
+        "rating": 4.6
+      }
+    ],
+    "newProducts": [
+      {
+        "name": "Bluetooth Speaker",
+        "category": "accessories",
+        "price": 89.99,
+        "description": "Portable Bluetooth speaker with 12-hour battery life",
+        "stock": 120,
+        "expected_status": 201
+      },
+      {
+        "name": "Wireless Mouse",
+        "category": "accessories",
+        "price": 39.99,
+        "description": "Ergonomic wireless mouse with adjustable DPI",
+        "stock": 200,
+        "expected_status": 201
+      }
+    ],
+    "productsToUpdate": [
+      {
+        "id": "prod_001",
+        "price": 1199.99,
+        "stock": 45,
+        "description": "Updated high-performance laptop with 16GB RAM and 512GB SSD",
+        "expected_status": 200
+      },
+      {
+        "id": "prod_003",
+        "price": 179.99,
+        "stock": 100,
+        "description": "Updated noise-cancelling wireless headphones with extended 30-hour battery life",
+        "expected_status": 200
+      }
+    ],
+    "invalidProducts": [
+      {
+        "id": "prod_999",
+        "expected_status": 404,
+        "description": "Non-existent product ID"
+      },
+      {
+        "name": "",
+        "category": "electronics",
+        "price": 1299.99,
+        "description": "Missing product name",
+        "expected_status": 400
+      },
+      {
+        "name": "Test Product",
+        "category": "electronics",
+        "price": -50,
+        "description": "Invalid price value",
+        "expected_status": 400
+      }
+    ],
+    "productSearchQueries": [
+      {
+        "category": "electronics",
+        "expected_count": 3,
+        "expected_status": 200
+      },
+      {
+        "category": "accessories",
+        "expected_count": 1,
+        "expected_status": 200
+      },
+      {
+        "min_price": 500,
+        "expected_count": 3,
+        "expected_status": 200
+      }
+    ],
+    "bulkOperations": {
+      "productIds": ["prod_001", "prod_002", "prod_003"],
+      "price_adjustment": 0.9,
+      "expected_status": 200
+    }
+  },
+  "schemas": {
+    "product": {
+      "type": "object",
+      "required": ["id", "name", "category", "price", "description", "stock"],
+      "properties": {
+        "id": {
+          "type": "string",
+          "pattern": "^prod_\\d{3}$"
+        },
+        "name": {
+          "type": "string",
+          "minLength": 3
+        },
+        "category": {
+          "type": "string",
+          "enum": ["electronics", "accessories", "wearables"]
+        },
+        "price": {
+          "type": "number",
+          "minimum": 0
+        },
+        "description": {
+          "type": "string"
+        },
+        "stock": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "rating": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 5
+        }
+      }
+    }
+  },
+  "environments": {
+    "dev": {
+      "baseUrl": "https://api-dev.example.com",
+      "productApiPath": "/v1/products",
+      "timeout": 5000,
+      "retries": 3
+    },
+    "qa": {
+      "baseUrl": "https://api-qa.example.com",
+      "productApiPath": "/v1/products",
+      "timeout": 10000,
+      "retries": 2
+    },
+    "prod": {
+      "baseUrl": "https://api.example.com",
+      "productApiPath": "/v1/products",
+      "timeout": 15000,
+      "retries": 1
+    }
+  },
+  "headers": {
+    "default": {
+      "Content-Type": "application/json",
+      "Accept": "application/json"
+    },
+    "auth": {
+      "Content-Type": "application/json",
+      "Accept": "application/json",
+      "Authorization": "Bearer {{token}}",
+      "x-api-key": "{{apiKey}}"
+    }
+  }
+}

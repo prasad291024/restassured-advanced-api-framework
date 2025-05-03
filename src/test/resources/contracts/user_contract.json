@@ -1,0 +1,96 @@
+{
+  "contract": {
+    "name": "User API Contract",
+    "version": "1.0",
+    "description": "Contract for User API endpoints",
+    "endpoints": [
+      {
+        "path": "/api/users",
+        "method": "GET",
+        "description": "Get all users",
+        "expectedStatusCode": 200,
+        "requiredResponseFields": ["id", "email", "first_name", "last_name"],
+        "responseType": "array",
+        "responseTimeThreshold": 2000
+      },
+      {
+        "path": "/api/users/{id}",
+        "method": "GET",
+        "description": "Get user by ID",
+        "pathParams": ["id"],
+        "expectedStatusCode": 200,
+        "requiredResponseFields": ["id", "email", "first_name", "last_name", "avatar"],
+        "responseType": "object",
+        "responseTimeThreshold": 1000
+      },
+      {
+        "path": "/api/users",
+        "method": "POST",
+        "description": "Create new user",
+        "expectedStatusCode": 201,
+        "requiredRequestFields": ["name", "job"],
+        "requiredResponseFields": ["id", "name", "job", "createdAt"],
+        "responseType": "object",
+        "responseTimeThreshold": 1500
+      },
+      {
+        "path": "/api/users/{id}",
+        "method": "PUT",
+        "description": "Update user completely",
+        "pathParams": ["id"],
+        "expectedStatusCode": 200,
+        "requiredRequestFields": ["name", "job"],
+        "requiredResponseFields": ["name", "job", "updatedAt"],
+        "responseType": "object",
+        "responseTimeThreshold": 1500
+      },
+      {
+        "path": "/api/users/{id}",
+        "method": "PATCH",
+        "description": "Update user partially",
+        "pathParams": ["id"],
+        "expectedStatusCode": 200,
+        "requiredResponseFields": ["updatedAt"],
+        "responseType": "object",
+        "responseTimeThreshold": 1500
+      },
+      {
+        "path": "/api/users/{id}",
+        "method": "DELETE",
+        "description": "Delete user",
+        "pathParams": ["id"],
+        "expectedStatusCode": 204,
+        "responseTimeThreshold": 1000
+      },
+      {
+        "path": "/api/register",
+        "method": "POST",
+        "description": "Register new user",
+        "expectedStatusCode": 200,
+        "requiredRequestFields": ["email", "password"],
+        "requiredResponseFields": ["id", "token"],
+        "responseType": "object",
+        "responseTimeThreshold": 1500
+      },
+      {
+        "path": "/api/login",
+        "method": "POST",
+        "description": "Login user",
+        "expectedStatusCode": 200,
+        "requiredRequestFields": ["email", "password"],
+        "requiredResponseFields": ["token"],
+        "responseType": "object",
+        "responseTimeThreshold": 1500
+      }
+    ],
+    "errorCodes": {
+      "400": "Bad Request - The request was unacceptable, often due to missing a required parameter",
+      "401": "Unauthorized - No valid API key provided",
+      "403": "Forbidden - The API key doesn't have permissions",
+      "404": "Not Found - The requested resource doesn't exist",
+      "409": "Conflict - The request conflicts with another request",
+      "429": "Too Many Requests - Rate limit exceeded",
+      "500": "Server Error - Something went wrong on the API's end"
+    }
+  }
+}

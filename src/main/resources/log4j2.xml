@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration status="WARN">
+    <!-- Define custom logging levels if needed -->
+    <Properties>
+        <Property name="baseDir">logs</Property>
+        <Property name="fileName">api-automation</Property>
+        <Property name="archiveDir">archive</Property>
+        <Property name="pattern">%d{yyyy-MM-dd HH:mm:ss.SSS} [%t] %-5level %logger{36} - %msg%n</Property>
+    </Properties>
+
+    <Appenders>
+        <!-- Console Appender -->
+        <Console name="Console" target="SYSTEM_OUT">
+            <PatternLayout pattern="${pattern}"/>
+        </Console>
+
+        <!-- File Appender for all logs -->
+        <RollingFile name="FileAppender"
+                     fileName="${baseDir}/${fileName}.log"
+                     filePattern="${baseDir}/${archiveDir}/${fileName}-%d{yyyy-MM-dd}-%i.log.gz">
+            <PatternLayout pattern="${pattern}"/>
+            <Policies>
+                <TimeBasedTriggeringPolicy interval="1" modulate="true"/>
+                <SizeBasedTriggeringPolicy size="10 MB"/>
+            </Policies>
+            <DefaultRolloverStrategy max="10"/>
+        </RollingFile>
+
+        <!-- File Appender for error logs only -->
+        <RollingFile name="ErrorFileAppender"
+                     fileName="${baseDir}/${fileName}-errors.log"
+                     filePattern="${baseDir}/${archiveDir}/${fileName}-errors-%d{yyyy-MM-dd}-%i.log.gz">
+            <PatternLayout pattern="${pattern}"/>
+            <Policies>
+                <TimeBasedTriggeringPolicy interval="1" modulate="true"/>
+                <SizeBasedTriggeringPolicy size="10 MB"/>
+            </Policies>
+            <DefaultRolloverStrategy max="10"/>
+            <!-- Filter to include only error-level messages -->
+            <Filters>
+                <ThresholdFilter level="ERROR" onMatch="ACCEPT" onMismatch="DENY"/>
+            </Filters>
+        </RollingFile>
+
+        <!-- File Appender for request-response logs -->
+        <RollingFile name="ApiLogAppender"
+                     fileName="${baseDir}/api-requests.log"
+                     filePattern="${baseDir}/${archiveDir}/api-requests-%d{yyyy-MM-dd}-%i.log.gz">
+            <PatternLayout pattern="${pattern}"/>
+            <Policies>
+                <TimeBasedTriggeringPolicy interval="1" modulate="true"/>
+                <SizeBasedTriggeringPolicy size="25 MB"/>
+            </Policies>
+            <DefaultRolloverStrategy max="20"/>
+        </RollingFile>
+    </Appenders>
+
+    <Loggers>
+        <!-- Logger for API request-response interceptor -->
+        <Logger name="com.prasad_v.interceptors.RequestResponseInterceptor" level="DEBUG" additivity="false">
+            <AppenderRef ref="ApiLogAppender"/>
+            <AppenderRef ref="Console"/>
+        </Logger>
+
+        <!-- Logger for validation-related classes -->
+        <Logger name="com.prasad_v.validation" level="DEBUG" additivity="false">
+            <AppenderRef ref="FileAppender"/>
+            <AppenderRef ref="ErrorFileAppender"/>
+            <AppenderRef ref="Console"/>
+        </Logger>
+
+        <!-- Logger for rest-assured direct logging -->
+        <Logger name="io.restassured" level="INFO" additivity="false">
+            <AppenderRef ref="FileAppender"/>
+            <AppenderRef ref="Console"/>
+        </Logger>
+
+        <!-- Custom logger for your application -->
+        <Logger name="com.prasad_v" level="DEBUG" additivity="false">
+            <AppenderRef ref="FileAppender"/>
+            <AppenderRef ref="ErrorFileAppender"/>
+            <AppenderRef ref="Console"/>
+        </Logger>
+
+        <!-- Root logger - catch-all for any other classes -->
+        <Root level="INFO">
+            <AppenderRef ref="Console"/>
+            <AppenderRef ref="FileAppender"/>
+            <AppenderRef ref="ErrorFileAppender"/>
+        </Root>
+    </Loggers>
+</Configuration>

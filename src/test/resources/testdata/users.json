@@ -1,0 +1,154 @@
+{
+  "testData": {
+    "validUsers": [
+      {
+        "id": "user_001",
+        "email": "george.bluth@reqres.in",
+        "first_name": "George",
+        "last_name": "Bluth",
+        "expected_avatar": "https://reqres.in/img/faces/1-image.jpg"
+      },
+      {
+        "id": "user_002",
+        "email": "janet.weaver@reqres.in",
+        "first_name": "Janet",
+        "last_name": "Weaver",
+        "expected_avatar": "https://reqres.in/img/faces/2-image.jpg"
+      },
+      {
+        "id": "user_003",
+        "email": "emma.wong@reqres.in",
+        "first_name": "Emma",
+        "last_name": "Wong",
+        "expected_avatar": "https://reqres.in/img/faces/3-image.jpg"
+      }
+    ],
+    "newUsers": [
+      {
+        "name": "John Doe",
+        "job": "Software Engineer",
+        "expected_status": 201
+      },
+      {
+        "name": "Jane Smith",
+        "job": "Product Manager",
+        "expected_status": 201
+      },
+      {
+        "name": "Robert Johnson",
+        "job": "QA Engineer",
+        "expected_status": 201
+      }
+    ],
+    "usersToUpdate": [
+      {
+        "id": 1,
+        "name": "John Updated",
+        "job": "Senior Software Engineer",
+        "expected_status": 200
+      },
+      {
+        "id": 2,
+        "name": "Jane Updated",
+        "job": "Senior Product Manager",
+        "expected_status": 200
+      }
+    ],
+    "loginCredentials": [
+      {
+        "email": "eve.holt@reqres.in",
+        "password": "cityslicka",
+        "expected_status": 200,
+        "description": "Valid login credentials"
+      },
+      {
+        "email": "eve.holt@reqres.in",
+        "password": "",
+        "expected_status": 400,
+        "description": "Missing password"
+      },
+      {
+        "email": "",
+        "password": "cityslicka",
+        "expected_status": 400,
+        "description": "Missing email"
+      }
+    ],
+    "registrationData": [
+      {
+        "email": "eve.holt@reqres.in",
+        "password": "pistol",
+        "expected_status": 200,
+        "description": "Valid registration data"
+      },
+      {
+        "email": "sydney@fife",
+        "password": "",
+        "expected_status": 400,
+        "description": "Missing password"
+      }
+    ],
+    "invalidUserIds": [
+      {
+        "id": 999,
+        "expected_status": 404,
+        "description": "Non-existent user ID"
+      },
+      {
+        "id": "abc",
+        "expected_status": 400,
+        "description": "Invalid user ID format"
+      }
+    ],
+    "paginationTests": [
+      {
+        "page": 1,
+        "expected_per_page": 6,
+        "expected_total": 12
+      },
+      {
+        "page": 2,
+        "expected_per_page": 6,
+        "expected_total": 12
+      }
+    ],
+    "delayTests": [
+      {
+        "delay": 3,
+        "expected_response_time_min": 3000,
+        "expected_response_time_max": 4000
+      }
+    ]
+  },
+  "environments": {
+    "dev": {
+      "baseUrl": "https://reqres.in",
+      "apiVersion": "api",
+      "timeout": 5000,
+      "retries": 3
+    },
+    "qa": {
+      "baseUrl": "https://qa.reqres.in",
+      "apiVersion": "api",
+      "timeout": 10000,
+      "retries": 2
+    },
+    "prod": {
+      "baseUrl": "https://prod.reqres.in",
+      "apiVersion": "api",
+      "timeout": 15000,
+      "retries": 1
+    }
+  },
+  "headers": {
+    "default": {
+      "Content-Type": "application/json",
+      "Accept": "application/json"
+    },
+    "auth": {
+      "Content-Type": "application/json",
+      "Accept": "application/json",
+      "Authorization": "Bearer {{token}}"
+    }
+  }
+}
